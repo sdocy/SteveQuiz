@@ -278,7 +278,7 @@
                     android:layout_height="wrap_content"
                     android:onClick="answer4"
                     android:tag="-2"
-                    android:text="@string/answer45" />
+                    android:text="@string/answer45"/>
             </RadioGroup>
         </LinearLayout>
 

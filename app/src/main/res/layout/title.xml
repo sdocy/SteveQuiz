@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:contentDescription="@string/title_pic_desc"
-        android:src="@drawable/tubing4" />
+        android:src="@drawable/tubing4"/>
 
     <Button
         android:id="@+id/titleButton"
