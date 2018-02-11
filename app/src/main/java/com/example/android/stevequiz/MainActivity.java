@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     // and start playing Jeopardy song.
     //
     @SuppressWarnings("unused")
-    void beginGame(View view) {
+    public void beginGame(View view) {
         EditText nameInput = findViewById(R.id.name_input);
 
         playerName = nameInput.getText().toString();
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     //  Resets game state, stops the text color runnable and loads the title scene.
     //
     @SuppressWarnings("unused")
-    void backToTitle(View view) {
+    public void backToTitle(View view) {
         stopRunnable = true;
         resetQuiz();
         setContentView(R.layout.title);

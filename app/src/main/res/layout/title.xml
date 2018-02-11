@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
+        android:contentDescription="@string/title_pic_desc"
         android:src="@drawable/tubing4" />
 
     <Button
@@ -20,7 +21,7 @@
         android:background="@drawable/my_button_bg"
         android:onClick="beginGame"
         android:textSize="12sp"
-        android:text="Think you know Steve?  Test your knowledge"/>
+        android:text="@string/title_button"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:hint="name"
+            android:hint="@string/title_hint"
             android:inputType="textCapWords"/>
     </LinearLayout>
 

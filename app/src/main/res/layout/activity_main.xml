@@ -24,7 +24,7 @@
             android:textColor="#000000"
             android:textSize="60sp"
             android:textStyle="bold"
-            android:text="Steve Quiz"/>
+            android:text="@string/app_name"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="serif"
-            android:text="How many can you get right?\n"/>
+            android:text="@string/how_many"/>
 
         <LinearLayout
             android:id="@+id/layout1"
@@ -53,7 +53,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="What is Steve's middle name?"/>
+                android:text="@string/question1"/>
 
             <RadioGroup
                 android:id="@+id/answer1"
@@ -66,31 +66,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Stephen"/>
+                    android:text="@string/answer11"/>
                 <RadioButton
                     android:onClick="answer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Alexander"/>
+                    android:text="@string/answer12"/>
                 <RadioButton
                     android:onClick="answer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Robert"/>
+                    android:text="@string/answer13"/>
                 <RadioButton
                     android:onClick="answer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="Michael"/>
+                    android:text="@string/answer14"/>
                 <RadioButton
                     android:onClick="answer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="-2"
-                    android:text="Gandalf"/>
+                    android:text="@string/answer15"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -112,7 +112,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="What does Steve watch every Christmas?"/>
+                android:text="@string/question0"/>
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -124,31 +124,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Home Alone"/>
+                    android:text="@string/answer01"/>
                 <RadioButton
                     android:onClick="answer0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="It's a Wonderful Life"/>
+                    android:text="@string/answer02"/>
                 <RadioButton
                     android:onClick="answer0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="A Christmas Story"/>
+                    android:text="@string/answer03"/>
                 <RadioButton
                     android:onClick="answer0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Die Hard"/>
+                    android:text="@string/answer04"/>
                 <RadioButton
                     android:onClick="answer0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="-2"
-                    android:text="Santa Claus Conquers the Martians"/>
+                    android:text="@string/answer05"/>
             </RadioGroup>
 
             <ImageView
@@ -156,6 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/scmars_pic_desc"
                 android:src="@drawable/scmars"/>
         </LinearLayout>
 
@@ -178,7 +179,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="What belt does Steve have in Aikido?"/>
+                android:text="@string/question2"/>
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -190,31 +191,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="1st degree white"/>
+                    android:text="@string/answer21"/>
                 <RadioButton
                     android:onClick="answer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="4th degree white"/>
+                    android:text="@string/answer22"/>
                 <RadioButton
                     android:onClick="answer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="1st degree black"/>
+                    android:text="@string/answer23"/>
                 <RadioButton
                     android:onClick="answer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="4th degree black"/>
+                    android:text="@string/answer24"/>
                 <RadioButton
                     android:onClick="answer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="-2"
-                    android:text="JC Penny......$3.98"/>
+                    android:text="@string/answer25"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -234,7 +235,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:padding="8dp"
-                android:text="What is Steve's least favorite pizza topping?"
+                android:text="@string/question4"
                 android:textColor="#000000"
                 android:textSize="12sp" />
 
@@ -249,35 +250,35 @@
                     android:layout_height="wrap_content"
                     android:onClick="answer4"
                     android:tag="0"
-                    android:text="mushrooms" />
+                    android:text="@string/answer41" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="answer4"
                     android:tag="1"
-                    android:text="olives" />
+                    android:text="@string/answer42" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="answer4"
                     android:tag="0"
-                    android:text="pineapple" />
+                    android:text="@string/answer43" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="answer4"
                     android:tag="0"
-                    android:text="lettuce" />
+                    android:text="@string/answer44" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="answer4"
                     android:tag="-2"
-                    android:text="skittles" />
+                    android:text="@string/answer45" />
             </RadioGroup>
         </LinearLayout>
 
@@ -297,7 +298,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:padding="8dp"
-                android:text="What color is Steve's computer keyboard set to?"
+                android:text="@string/question5"
                 android:textColor="#000000"
                 android:textSize="12sp" />
 
@@ -313,34 +314,34 @@
                     android:layout_height="wrap_content"
                     android:textColor="#31b11d"
                     android:tag="0"
-                    android:text="matrix_green"/>
+                    android:text="@string/answer51"/>
                 <RadioButton
                     android:onClick="answer5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#192478"
                     android:tag="1"
-                    android:text="midnight blue"/>
+                    android:text="@string/answer52"/>
                 <RadioButton
                     android:onClick="answer5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#9c1a06"
                     android:tag="0"
-                    android:text="blood red"/>
+                    android:text="@string/answer53"/>
                 <RadioButton
                     android:onClick="answer5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="nothing, it's broken"/>
+                    android:text="@string/answer54"/>
                 <RadioButton
                     android:onClick="answer5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#be79bc"
                     android:tag="-2"
-                    android:text="shana pink"/>
+                    android:text="@string/answer55"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -362,7 +363,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="When did Steve graduate from high school?"/>
+                android:text="@string/question6"/>
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -374,31 +375,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="1986"/>
+                    android:text="@string/answer61"/>
                 <RadioButton
                     android:onClick="answer6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="1988"/>
+                    android:text="@string/answer62"/>
                 <RadioButton
                     android:onClick="answer6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="1987"/>
+                    android:text="@string/answer63"/>
                 <RadioButton
                     android:onClick="answer6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="1989"/>
+                    android:text="@string/answer64"/>
                 <RadioButton
                     android:onClick="answer6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="-2"
-                    android:text="about a million years ago"/>
+                    android:text="@string/answer65"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -420,7 +421,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="Pick Steve's four favorite super-heroes"/>
+                android:text="@string/question7"/>
 
             <LinearLayout
                 android:id="@+id/answer7"
@@ -433,7 +434,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Superman"
+                    android:text="@string/answer71"
                     android:textSize="16sp"
                     android:tag="-1"
                     android:paddingLeft="24dp"/>
@@ -442,7 +443,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Batman"
+                    android:text="@string/answer72"
                     android:textSize="16sp"
                     android:tag="1"
                     android:paddingLeft="24dp"/>
@@ -451,7 +452,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Flash"
+                    android:text="@string/answer73"
                     android:textSize="16sp"
                     android:tag="-1"
                     android:paddingLeft="24dp"/>
@@ -460,7 +461,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Iron Man"
+                    android:text="@string/answer74"
                     android:textSize="16sp"
                     android:tag="-1"
                     android:paddingLeft="24dp"/>
@@ -469,7 +470,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Spider-Man"
+                    android:text="@string/answer75"
                     android:textSize="16sp"
                     android:tag="1"
                     android:paddingLeft="24dp"/>
@@ -478,7 +479,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Wolverine"
+                    android:text="@string/answer76"
                     android:textSize="16sp"
                     android:tag="1"
                     android:paddingLeft="24dp"/>
@@ -487,7 +488,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daredevil"
+                    android:text="@string/answer77"
                     android:textSize="16sp"
                     android:tag="1"
                     android:paddingLeft="24dp"/>
@@ -496,7 +497,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thor"
+                    android:text="@string/answer78"
                     android:textSize="16sp"
                     android:tag="-1"
                     android:paddingLeft="24dp"/>
@@ -505,7 +506,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hulk"
+                    android:text="@string/answer79"
                     android:textSize="16sp"
                     android:tag="-1"
                     android:paddingLeft="24dp"/>
@@ -514,7 +515,7 @@
                     android:onClick="answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Joker"
+                    android:text="@string/answer70"
                     android:textSize="16sp"
                     android:tag="-2"
                     android:paddingLeft="24dp"/>
@@ -539,7 +540,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="It is not true that Steve's least favorite chocolate has not ever been..."/>
+                android:text="@string/question8"/>
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -551,19 +552,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="dark chocolate"/>
+                    android:text="@string/answer81"/>
                 <RadioButton
                     android:onClick="answer8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="milk chocolate"/>
+                    android:text="@string/answer82"/>
                 <RadioButton
                     android:onClick="answer8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="white chocolate"/>
+                    android:text="@string/answer83"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -585,7 +586,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="What is Steve's favoritest comic strip of all-time??"/>
+                android:text="@string/question9"/>
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -597,31 +598,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Dilbert"/>
+                    android:text="@string/answer91"/>
                 <RadioButton
                     android:onClick="answer9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Farside"/>
+                    android:text="@string/answer92"/>
                 <RadioButton
                     android:onClick="answer9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="Garfield"/>
+                    android:text="@string/answer93"/>
                 <RadioButton
                     android:onClick="answer9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="Calvin and Hobbes"/>
+                    android:text="@string/answer94"/>
                 <RadioButton
                     android:onClick="answer9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="-2"
-                    android:text="Cathy"/>
+                    android:text="@string/answer95"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -643,7 +644,7 @@
                 android:background="@drawable/my_button_bg"
                 android:onClick="openQuestion"
                 android:textSize="12sp"
-                android:text="What quote is currently on Steve's Facebook page?"/>
+                android:text="@string/question3"/>
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -655,31 +656,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="What do we say to Death?  Not today."/>
+                    android:text="@string/answer31"/>
                 <RadioButton
                     android:onClick="answer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="1"
-                    android:text="Can a man be brave if he's afraid?  That is the only time a man can be brave"/>
+                    android:text="@string/answer32"/>
                 <RadioButton
                     android:onClick="answer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="May the force be with you"/>
+                    android:text="@string/answer33"/>
                 <RadioButton
                     android:onClick="answer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="0"
-                    android:text="BAZINGA !!"/>
+                    android:text="@string/answer34"/>
                 <RadioButton
                     android:onClick="answer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="-2"
-                    android:text="When I look at you, I see the story in your eyes\nWhen we're dancing..."/>
+                    android:text="@string/answer35"/>
             </RadioGroup>
         </LinearLayout>
 
@@ -693,7 +694,7 @@
             android:background="@drawable/my_button_bg"
             android:onClick="showResults"
             android:textSize="12sp"
-            android:text="Submit Answers"/>
+            android:text="@string/submit"/>
 
     </LinearLayout>
 </ScrollView>
