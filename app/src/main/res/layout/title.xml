@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/tubing4" />
+
+    <Button
+        android:id="@+id/titleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_alignParentBottom="true"
+        android:padding="8dp"
+        android:textColor="#000000"
+        android:background="@drawable/my_button_bg"
+        android:onClick="beginGame"
+        android:textSize="12sp"
+        android:text="Think you know Steve?  Test your knowledge"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_above="@id/titleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="invisible"/>
+
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:hint="name"
+            android:inputType="textCapWords"/>
+    </LinearLayout>
+
+</RelativeLayout>

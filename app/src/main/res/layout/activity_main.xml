@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:gravity="center"
+        tools:context="com.example.android.justjava.MainActivity">
+
+        <TextView android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:layout_margin="16dp"
+            android:shadowColor="#7fc2e4"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="10"
+            android:textColor="#000000"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:text="Steve Quiz"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#7fc2e4"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:text="How many can you get right?\n"/>
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="What is Steve's middle name?"/>
+
+            <RadioGroup
+                android:id="@+id/answer1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Stephen"/>
+                <RadioButton
+                    android:onClick="answer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Alexander"/>
+                <RadioButton
+                    android:onClick="answer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Robert"/>
+                <RadioButton
+                    android:onClick="answer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="Michael"/>
+                <RadioButton
+                    android:onClick="answer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="-2"
+                    android:text="Gandalf"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout0"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="What does Steve watch every Christmas?"/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Home Alone"/>
+                <RadioButton
+                    android:onClick="answer0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="It's a Wonderful Life"/>
+                <RadioButton
+                    android:onClick="answer0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="A Christmas Story"/>
+                <RadioButton
+                    android:onClick="answer0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Die Hard"/>
+                <RadioButton
+                    android:onClick="answer0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="-2"
+                    android:text="Santa Claus Conquers the Martians"/>
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/scmarsPic"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/scmars"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="What belt does Steve have in Aikido?"/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="1st degree white"/>
+                <RadioButton
+                    android:onClick="answer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="4th degree white"/>
+                <RadioButton
+                    android:onClick="answer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="1st degree black"/>
+                <RadioButton
+                    android:onClick="answer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="4th degree black"/>
+                <RadioButton
+                    android:onClick="answer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="-2"
+                    android:text="JC Penny......$3.98"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:padding="8dp"
+                android:text="What is Steve's least favorite pizza topping?"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:paddingLeft="16dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="answer4"
+                    android:tag="0"
+                    android:text="mushrooms" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="answer4"
+                    android:tag="1"
+                    android:text="olives" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="answer4"
+                    android:tag="0"
+                    android:text="pineapple" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="answer4"
+                    android:tag="0"
+                    android:text="lettuce" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="answer4"
+                    android:tag="-2"
+                    android:text="skittles" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout5"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:padding="8dp"
+                android:text="What color is Steve's computer keyboard set to?"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#31b11d"
+                    android:tag="0"
+                    android:text="matrix_green"/>
+                <RadioButton
+                    android:onClick="answer5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#192478"
+                    android:tag="1"
+                    android:text="midnight blue"/>
+                <RadioButton
+                    android:onClick="answer5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9c1a06"
+                    android:tag="0"
+                    android:text="blood red"/>
+                <RadioButton
+                    android:onClick="answer5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="nothing, it's broken"/>
+                <RadioButton
+                    android:onClick="answer5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#be79bc"
+                    android:tag="-2"
+                    android:text="shana pink"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout6"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="When did Steve graduate from high school?"/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="1986"/>
+                <RadioButton
+                    android:onClick="answer6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="1988"/>
+                <RadioButton
+                    android:onClick="answer6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="1987"/>
+                <RadioButton
+                    android:onClick="answer6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="1989"/>
+                <RadioButton
+                    android:onClick="answer6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="-2"
+                    android:text="about a million years ago"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout7"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="Pick Steve's four favorite super-heroes"/>
+
+            <LinearLayout
+                android:id="@+id/answer7"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="16dp"
+                android:layout_height="0dp">
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Superman"
+                    android:textSize="16sp"
+                    android:tag="-1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Batman"
+                    android:textSize="16sp"
+                    android:tag="1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Flash"
+                    android:textSize="16sp"
+                    android:tag="-1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Iron Man"
+                    android:textSize="16sp"
+                    android:tag="-1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spider-Man"
+                    android:textSize="16sp"
+                    android:tag="1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wolverine"
+                    android:textSize="16sp"
+                    android:tag="1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daredevil"
+                    android:textSize="16sp"
+                    android:tag="1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thor"
+                    android:textSize="16sp"
+                    android:tag="-1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hulk"
+                    android:textSize="16sp"
+                    android:tag="-1"
+                    android:paddingLeft="24dp"/>
+
+                <CheckBox
+                    android:onClick="answer7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joker"
+                    android:textSize="16sp"
+                    android:tag="-2"
+                    android:paddingLeft="24dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout8"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="It is not true that Steve's least favorite chocolate has not ever been..."/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="dark chocolate"/>
+                <RadioButton
+                    android:onClick="answer8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="milk chocolate"/>
+                <RadioButton
+                    android:onClick="answer8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="white chocolate"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout9"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="What is Steve's favoritest comic strip of all-time??"/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Dilbert"/>
+                <RadioButton
+                    android:onClick="answer9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Farside"/>
+                <RadioButton
+                    android:onClick="answer9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="Garfield"/>
+                <RadioButton
+                    android:onClick="answer9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="Calvin and Hobbes"/>
+                <RadioButton
+                    android:onClick="answer9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="-2"
+                    android:text="Cathy"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_margin="2dp"
+            android:background="#076379"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:textColor="#000000"
+                android:background="@drawable/my_button_bg"
+                android:onClick="openQuestion"
+                android:textSize="12sp"
+                android:text="What quote is currently on Steve's Facebook page?"/>
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:paddingLeft="16dp"
+                android:orientation="vertical">
+                <RadioButton
+                    android:onClick="answer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="What do we say to Death?  Not today."/>
+                <RadioButton
+                    android:onClick="answer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="1"
+                    android:text="Can a man be brave if he's afraid?  That is the only time a man can be brave"/>
+                <RadioButton
+                    android:onClick="answer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="May the force be with you"/>
+                <RadioButton
+                    android:onClick="answer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="0"
+                    android:text="BAZINGA !!"/>
+                <RadioButton
+                    android:onClick="answer3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="-2"
+                    android:text="When I look at you, I see the story in your eyes\nWhen we're dancing..."/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/doneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:textColor="#000000"
+            android:background="@drawable/my_button_bg"
+            android:onClick="showResults"
+            android:textSize="12sp"
+            android:text="Submit Answers"/>
+
+    </LinearLayout>
+</ScrollView>
+
