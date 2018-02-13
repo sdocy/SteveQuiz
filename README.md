@@ -25,19 +25,28 @@ years ago.
 
 
 Some cool features I figured out:
-Dynamically expand and collapse Views based on user actions. This was my initial
+
+- Dynamically expand and collapse Views based on user actions. This was my initial
 “wouldn't it be cool if” idea when I started thinking of the app and it really drove
 the overall design. Seemed like a great feature for making efficient use of limited
 mobile screen real-estate.
-Add music...I'm still looking for a better way to switch music tracks other than
+
+- Add music...I'm still looking for a better way to switch music tracks other than
 destroying and recreating my media player.
-Add funny question answers with funny little Easter eggs....toasts, images that
+
+- Add funny question answers with funny little Easter eggs....toasts, images that
 expand, music that starts playing
-Shade buttons to let the player know which questions they have answered.
-Switching the layout displayed on the screen
-Check correct state before going to next layout...did user enter their name, did
+
+- Shade buttons to let the player know which questions they have answered.
+
+- Switching the layout displayed on the screen
+
+- Check correct state before going to next layout...did user enter their name, did
 they answer all questions?
-A leader board that tracks the top 5 scores for this execution of the app – would
+
+- A leader board that tracks the top 5 scores for this execution of the app – would
 be cool to learn file I/O and write the leader board to persistent store.
-Text shadowing
-use runnables and handlers to start a thread for animating flashing text
+
+- Text shadowing
+
+- use runnables and handlers to start a thread for animating flashing text
