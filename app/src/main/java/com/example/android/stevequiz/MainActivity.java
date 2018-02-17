@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    int numQuestions = 10;
+    int numQuestions = 10;              // how many questrions are there?
 
 
     // if any new per-game state is added, be sure to reset it in resetQuiz()
-    int userAnswers[] = {0,0,0,0,0,0,0,0,0,0};
+    int userAnswers[] = {0,0,0,0,0,0,0,0,0,0};       // store a key indicating correct/incorrect answer
     boolean haveTheyAnswered[] = {false,false,false,false,false,false,false,false,false,false};
     int numCorrect = 0;         // number of question answered correctly
     LinearLayout currentLayout = null;          // what question layout is currently expanded
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
     TextView[] LBText = new TextView[numSpots];
     String names[] = {"","","","",""};
     // for flashing new LB score
-    int newLBscore = -1;
+    int newLBscore = -1;                        // stores the position in the LB a new score gets
     String LBColors[] = { "#3F51B5", "#3949AB", "#303F9F", "#283593", "#1A237E"};
-    int colorIndex = 0;
+    int colorIndex = 0;                         // used to cycle through LB colors for new score
 
     // expand/collapse a layout
     LinearLayout.LayoutParams closedParams =
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //
-    // Called when user clicks start button on title screen.  Makes
+    // Called when user clicks start button on title activity.  Makes
     // sure the user has entered their name, if so, load the main content
     // and start playing Jeopardy song.
     //
@@ -84,20 +84,21 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        // load question activity
         setContentView(R.layout.activity_main);
 
+        // simplest method I found for changing music for mediaPlayer is to destroy it and recreate it
         if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
-
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.jeopardy);
         mediaPlayer.start();
     }
 
     //
-    // Called when user clicks Try Again button from the results scene.
-    //  Resets game state, stops the text color runnable and loads the title scene.
+    // Called when user clicks Try Again button from the results activity.
+    //  Resets game state, stops the text color runnable and loads the title activity.
     //
     @SuppressWarnings("unused")
     public void backToTitle(View view) {
@@ -117,56 +118,23 @@ public class MainActivity extends AppCompatActivity {
         numCorrect = 0;
     }
 
-    //
-    // Called when a question button is hit.
-    // - dynamically finds the LinearLayout sibling, for this to work a question
-    //         button can only have a single sibling of type LinearLayout
-    // - see if the layout for this question is already expanded
-    //   - if so, collapse it
-    // - else
-    //   - see if there is a layout for another question expanded
-    //      - if so, collapse it
-    //   - expand the layout for this question
-    //
-    public void openQuestion(View view) {
-        LinearLayout layout = (LinearLayout) view.getParent();
+    // Called when user clicks Submit Answers.
+    // If the user has answered all questions, calculate their score and load the results activity.
+    public void showResults(View view) {
 
-        // find sibling LinearLayout
-        // requires only a single sibling of type LinearLayout
-        LinearLayout answer = null;
-        ViewGroup vg = (ViewGroup) view.getParent();
-        for (int itemPos = 0; itemPos < vg.getChildCount(); itemPos++) {
-            View v = vg.getChildAt(itemPos);
-            if (v instanceof LinearLayout) {
-                answer = (LinearLayout) v; //Found it!
-                break;
-            }
-        }
-
-        if (answer == null) {
-            Log.v("ERROR", "Null answer layout openQuestion()");
+        if (!answeredAllQuestions()) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Please answer all questions",
+                    Toast.LENGTH_SHORT);
+            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
+            toastMessage.setTextColor(Color.CYAN);
+            toast.show();
             return;
         }
 
-        if (currentLayout == layout) {
-            // this view is expanded, collapse it
-            answer.setLayoutParams(closedParams);
-            layout.setBackgroundColor(0xff076379);
-            currentLayout = null;
-            currentAnswer = null;
-        } else {
-            if (currentLayout != null) {
-                // a different view is expanded, collapse it
-                currentAnswer.setLayoutParams(closedParams);
-                currentLayout.setBackgroundColor(0xff076379);
-            }
-
-            // expand the view for this question
-            answer.setLayoutParams(openParams);
-            layout.setBackgroundColor(0xff7fc2e4);
-            currentLayout = layout;
-            currentAnswer = answer;
-        }
+        scoreAnswers();
+        setContentView(R.layout.results);
+        displayResults();
+        displayLeaderBoard();
     }
 
     // update the number of correct answers
@@ -182,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // see if the user has answered all questions
+    // has the user answered all questions?
     boolean answeredAllQuestions() {
         for (int i = 0; i < numQuestions; i++)
             if (!haveTheyAnswered[i])
@@ -227,8 +195,7 @@ public class MainActivity extends AppCompatActivity {
     // add this score and update the leaderboard TextViews
     //
     void displayLeaderBoard() {
-        // get text view references
-        //TextView[] LBText = new TextView[numSpots];
+        // get text view references for each spot on the LB
         LBText[0] = findViewById(R.id.LB1);
         LBText[1] = findViewById(R.id.LB2);
         LBText[2] = findViewById(R.id.LB3);
@@ -238,10 +205,12 @@ public class MainActivity extends AppCompatActivity {
         // insert new score
         newLBscore = -1;
         if (numCorrect > scores[numSpots - 1]) {
+            // score made it onto the LB
             scores[numSpots - 1] = numCorrect;
             names[numSpots - 1] = playerName;
             newLBscore = numSpots - 1;
             for (int i = numSpots - 2; i >= 0; i--) {
+                // migrate new score up to its proper spot on the LB
                 if (scores[i + 1] > scores[i]) {
                     int tmpScore = scores[i];
                     scores[i] = scores[i + 1];
@@ -266,28 +235,16 @@ public class MainActivity extends AppCompatActivity {
             LBText[i].setText(tmpStr);
         }
 
-        messWithColors();
-    }
-
-    // If the user has answered all questions, calculate their score and load the results scene.
-    public void showResults(View view) {
-
-        if (!answeredAllQuestions()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Please answer all questions",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
-            return;
-        }
-
-        scoreAnswers();
-        setContentView(R.layout.results);
-        displayResults();
-        displayLeaderBoard();
+        // cause new score to flash
+        if (newLBscore != -1)
+            messWithColors();
     }
 
     // handler to flash a new score added to the LB
+    // It changes the text color to the next text color in LBcolors, and then
+    // sets up another execution of itself in 0.1 seconds.
+    // stopRunnable is set to true to stop the recursion when the user clicks
+    // Try Again to go back to the title activity.
     Handler handler = new Handler();
     final Runnable r = new Runnable() {
         public void run() {
@@ -300,11 +257,67 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(this, 100);
         }
     };
+
+    // called from displayLeaderBoard() to trigger flashing for new score on LB
     void messWithColors() {
         stopRunnable = false;
         handler.postDelayed(r, 300);
     }
 
+    //
+    // Called when a question button is hit.
+    // - dynamically finds the LinearLayout sibling, for this to work a question
+    //         button can only have a single sibling of type LinearLayout
+    // - see if the layout for this question is already expanded
+    //   - if so, collapse it
+    // - else
+    //   - see if there is a layout for another question expanded
+    //      - if so, collapse it
+    //   - expand the layout for this question
+    //
+    public void openQuestion(View view) {
+        LinearLayout layout = (LinearLayout) view.getParent();
+
+        // find sibling LinearLayout
+        // requires there is only a single sibling of type LinearLayout
+        LinearLayout answer = null;
+        ViewGroup vg = (ViewGroup) view.getParent();
+        for (int itemPos = 0; itemPos < vg.getChildCount(); itemPos++) {
+            View v = vg.getChildAt(itemPos);
+            if (v instanceof LinearLayout) {
+                answer = (LinearLayout) v; //Found it!
+                break;
+            }
+        }
+
+        if (answer == null) {
+            Log.v("ERROR", "Null answer layout openQuestion()");
+            return;
+        }
+
+        // use setLayoutParams() to set the width and height ofviews when a question is chosen
+        if (currentLayout == layout) {
+            // this view is already expanded, collapse it
+            answer.setLayoutParams(closedParams);
+            layout.setBackgroundColor(0xff076379);
+            currentLayout = null;
+            currentAnswer = null;
+        } else {
+            if (currentLayout != null) {
+                // a different view is expanded, collapse it
+                currentAnswer.setLayoutParams(closedParams);
+                currentLayout.setBackgroundColor(0xff076379);
+            }
+
+            // expand the view for this question
+            answer.setLayoutParams(openParams);
+            layout.setBackgroundColor(0xff7fc2e4);
+
+            // remember which layout and answer are expanded
+            currentLayout = layout;
+            currentAnswer = answer;
+        }
+    }
 
 
     //
@@ -314,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
     //   - correct answers have a tag of 1
     //   - incorrect answers have a tag of 0 for radio buttons and -1 for checkboxes
     //   - incorrect answers with easter eggs have a tag of -2
-    // - perform easter egg if appropriate
+    // - perform easter egg if appropriate, and fix tag value to that equal an incorrect answer
     // - record user's answer to this question and mark the question as answered
     // - darken this button so the user knows they have answered this question
     //
