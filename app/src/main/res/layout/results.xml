@@ -126,16 +126,13 @@
 
     <Button
         android:id="@+id/doneButton"
+        style="@style/quizButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="8dp"
         android:textColor="#ffffff"
         android:background="@drawable/dark_bg"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="backToTitle"
-        android:textSize="12sp"
         android:text="@string/try_again"/>
 
 </RelativeLayout>

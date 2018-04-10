@@ -16,6 +16,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         EditText nameInput = findViewById(R.id.name_input);
 
         playerName = nameInput.getText().toString();
-        if (playerName.matches("")) {
+        if (playerName.equalsIgnoreCase("")) {
             Toast toast = Toast.makeText(getApplicationContext(), "Please enter your name -->",
                     Toast.LENGTH_SHORT);
             TextView toastMessage = toast.getView().findViewById(android.R.id.message);
@@ -331,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
     // - record user's answer to this question and mark the question as answered
     // - darken this button so the user knows they have answered this question
     //
+
     public void answer1(View view) {
         int answer = Integer.parseInt(view.getTag().toString());
 
