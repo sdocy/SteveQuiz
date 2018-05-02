@@ -1,0 +1,43 @@
+.text-left {
+	display: inline-block;
+	vertical-align : top;
+}
+
+.text-right {
+	display: inline-block;
+	vertical-align : top;
+	width: 33%;
+}
+
+.indentleft {
+	margin-left: 20px;
+}
+
+.indentright {
+	margin-right: 20px;
+}
+
+.small-image {
+	width: 200px;
+}
+
+.med-image {
+	width: 500px;
+}
+
+.center {
+	text-align: center;
+}
+
+
+p {
+	margin-left: 20px;
+}
+
+a:visited {
+	color: #ac00e6;
+}
+
+a:hover {
+	color: #00ff00;
+}
