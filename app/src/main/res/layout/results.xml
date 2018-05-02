@@ -6,39 +6,21 @@
 
     <TextView
         android:id="@+id/summaryText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        style="@style/textGlow"
         android:layout_centerHorizontal="true"
-        android:fontFamily="serif"
-        android:layout_margin="16dp"
-        android:shadowColor="#7fc2e4"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="10"
-        android:textColor="#000000"
+        android:gravity="center"
         android:textSize="40sp"
-        android:textStyle="bold"
         android:text=""/>
 
     <TextView
         android:id="@+id/flavorText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        style="@style/textGlow"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/summaryText"
-        android:fontFamily="serif"
-        android:layout_margin="16dp"
-        android:shadowColor="#7fc2e4"
-        android:shadowDx="3"
-        android:shadowDy="3"
-        android:shadowRadius="10"
-        android:textColor="#000000"
         android:textSize="40sp"
-        android:textStyle="bold"
         android:text=""/>
 
+    <!-- high score layout -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -49,80 +31,39 @@
 
         <TextView
             android:id="@+id/LB1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="serif"
+            style="@style/leaderBoard"
             android:shadowColor="#42A5F5"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="10"
             android:textColor="#3F51B5"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:text=""/>
 
         <TextView
             android:id="@+id/LB2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="serif"
+            style="@style/leaderBoard"
             android:shadowColor="#2196F3"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="10"
             android:textColor="#3949AB"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:text=""/>
 
         <TextView
             android:id="@+id/LB3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="serif"
+            style="@style/leaderBoard"
             android:shadowColor="#1E88E5"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="10"
             android:textColor="#303F9F"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:text=""/>
 
         <TextView
             android:id="@+id/LB4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="serif"
+            style="@style/leaderBoard"
             android:shadowColor="#1976D2"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="10"
             android:textColor="#283593"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:text=""/>
 
         <TextView
             android:id="@+id/LB5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:fontFamily="serif"
+            style="@style/leaderBoard"
             android:shadowColor="#1565C0"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="10"
             android:textColor="#1A237E"
-            android:textSize="20sp"
-            android:textStyle="bold"
             android:text=""/>
     </LinearLayout>
-
 
     <Button
         android:id="@+id/doneButton"

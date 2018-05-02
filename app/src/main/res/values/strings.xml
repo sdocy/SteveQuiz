@@ -11,7 +11,7 @@
     <string name="question5">What color is Steve\'s computer keyboard set to?</string>
     <string name="question6">When did Steve graduate from high school?</string>
     <string name="question7">Pick Steve\'s four favorite super-heroes</string>
-    <string name="question8">It is not true that Steve\'s least favorite chocolate has not ever been...</string>
+    <string name="question8">It is not true that Steve\'s least favorite chocolate has not ever been&#8230;</string>
     <string name="question9">What is Steve\'s favoritest comic strip of all-time?</string>
     <string name="question0">What does Steve watch every Christmas?</string>
     <string name="submit">Submit Answers</string>
@@ -68,7 +68,22 @@
     <string name="answer32">Can a man be brave if he\'s afraid?  That is the only time a man can be brave</string>
     <string name="answer33">May the force be with you</string>
     <string name="answer34">BAZINGA !!</string>
-    <string name="answer35">When I look at you, I see the story in your eyes\nWhen we're dancing...</string>
+    <string name="answer35">When I look at you, I see the story in your eyes\nWhen we\'re dancing&#8230;</string>
     <string name="try_again">Try Again</string>
-
+    <string name="steve_who">Steve Who?\n</string>
+    <string name="go_study">Better go study\n</string>
+    <string name="worthy">You are worthy\n</string>
+    <string name="grok">You grok Steve\n</string>
+    <string name="am_steve">I&#8230;AM&#8230;STEVE\n</string>
+    <string name="you_got">You got</string>
+    <string name="out_of">out of</string>
+    <string name="enter_name">Please enter your name &#8212;&#8212;></string>
+    <string name="all_questions">Please answer all questions</string>
+    <string name="not_pass">You shall not pass!</string>
+    <string name="wax_on">Wax on, wax off</string>
+    <string name="not_topping">Not a pizza topping</string>
+    <string name="she_wishes">Yeah, she wishes</string>
+    <string name="looks_good">Yeah, but he still looks gooooood</string>
+    <string name="serious">Why so serious?</string>
+    <string name="ack">ACK</string>
 </resources>

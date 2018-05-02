@@ -2,12 +2,10 @@ package com.example.android.stevequiz;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
 import android.media.MediaPlayer;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,20 +14,23 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Handler;
+
+// "Santa Claus Conquers the Martians" photo courtesy of http://assets.nydailynews.com/polopoly_fs/1.1133847.1344638915!/img/httpImage/image.jpg_gen/derivatives/gallery_320/santa-claus-conquers-martians.jpg
+// "Jeopardy" music courtesy of http://www.orangefreesounds.com/jeopardy-theme-song/
+// "The Night Begins To Shine" music courtesy of https://1music-online.info/?q=The-Night-Begins-to-Shine---BER&youtube=on
 
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer = null;
 
+    // dynamic question background colors
+    int lightBlue;          // question background color when expanded
+    int blueGreen;          // question background color when collapsed
 
-
-    int numQuestions = 10;              // how many questrions are there?
-
+    int numQuestions = 10;              // how many questions are there?
 
     // if any new per-game state is added, be sure to reset it in resetQuiz()
     int userAnswers[] = {0,0,0,0,0,0,0,0,0,0};       // store a key indicating correct/incorrect answer
@@ -41,16 +42,17 @@ public class MainActivity extends AppCompatActivity {
     String playerName;          // player name, explicitly gotten from EditText
 
     // leaderboard
-    int numSpots = 5;
-    int scores[] = {0,0,0,0,0};
-    TextView[] LBText = new TextView[numSpots];
-    String names[] = {"","","","",""};
+    int numSpots = 5;                               // number of scores on leaderboard
+    int scores[] = {0,0,0,0,0};                     // high scores
+    TextView[] LBText = new TextView[numSpots];     // views for displaying high scores
+    String names[] = {"","","","",""};              // high scores player names
+
     // for flashing new LB score
     int newLBscore = -1;                        // stores the position in the LB a new score gets
     String LBColors[] = { "#3F51B5", "#3949AB", "#303F9F", "#283593", "#1A237E"};
     int colorIndex = 0;                         // used to cycle through LB colors for new score
 
-    // expand/collapse a layout
+    // expand/collapse a question layout
     LinearLayout.LayoutParams closedParams =
             new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0);
     LinearLayout.LayoutParams openParams =
@@ -66,22 +68,16 @@ public class MainActivity extends AppCompatActivity {
         this.setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-    //
     // Called when user clicks start button on title activity.  Makes
     // sure the user has entered their name, if so, load the main content
     // and start playing Jeopardy song.
-    //
     @SuppressWarnings("unused")
     public void beginGame(View view) {
         EditText nameInput = findViewById(R.id.name_input);
 
         playerName = nameInput.getText().toString();
         if (playerName.equalsIgnoreCase("")) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Please enter your name -->",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.enter_name));
             return;
         }
 
@@ -95,12 +91,13 @@ public class MainActivity extends AppCompatActivity {
         }
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.jeopardy);
         mediaPlayer.start();
+
+        lightBlue = ContextCompat.getColor(getApplicationContext(), R.color.lightBlue);
+        blueGreen = ContextCompat.getColor(getApplicationContext(), R.color.blueGreen);
     }
 
-    //
     // Called when user clicks Try Again button from the results activity.
     //  Resets game state, stops the text color runnable and loads the title activity.
-    //
     @SuppressWarnings("unused")
     public void backToTitle(View view) {
         stopRunnable = true;
@@ -124,11 +121,7 @@ public class MainActivity extends AppCompatActivity {
     public void showResults(View view) {
 
         if (!answeredAllQuestions()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Please answer all questions",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.all_questions));
             return;
         }
 
@@ -166,35 +159,33 @@ public class MainActivity extends AppCompatActivity {
         TextView flavorTextView = findViewById(R.id.flavorText);
         String tmpStr;
 
-        tmpStr = "You got\n" + " " + numCorrect + "\nout of " + numQuestions + "\n";
+        tmpStr = getString(R.string.you_got) + "\n" + numCorrect + "\n" + getString(R.string.out_of) + " " + numQuestions + "\n";
         summaryTextView.setText(tmpStr);
 
         switch (numCorrect) {
             case 0:
             case 1:
             case 2:
-            case 3: tmpStr = "Steve Who?\n";
+            case 3: tmpStr = getString(R.string.steve_who);
                     break;
             case 4:
             case 5:
-            case 6: tmpStr = "Better go study\n";
+            case 6: tmpStr = getString(R.string.go_study);
                     break;
             case 7:
-            case 8: tmpStr = "You are worthy\n";
+            case 8: tmpStr = getString(R.string.worthy);
                     break;
-            case 9: tmpStr = "You Grok Steve\n";
+            case 9: tmpStr = getString(R.string.grok);
 
                     break;
-            case 10: tmpStr = "I.....AM....STEVE\n";
+            case 10: tmpStr = getString(R.string.am_steve);
                     break;
         }
         flavorTextView.setText(tmpStr);
     }
 
-    //
     // if new score is greater than the smallest score on the leaderboard,
     // add this score and update the leaderboard TextViews
-    //
     void displayLeaderBoard() {
         // get text view references for each spot on the LB
         LBText[0] = findViewById(R.id.LB1);
@@ -206,9 +197,10 @@ public class MainActivity extends AppCompatActivity {
         // insert new score
         newLBscore = -1;
         if (numCorrect > scores[numSpots - 1]) {
-            // score made it onto the LB
+            // score made it onto the LB, insert it in the bottom slot
             scores[numSpots - 1] = numCorrect;
             names[numSpots - 1] = playerName;
+
             newLBscore = numSpots - 1;
             for (int i = numSpots - 2; i >= 0; i--) {
                 // migrate new score up to its proper spot on the LB
@@ -227,12 +219,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // update text views
+        // display leader board
         for (int  i = 0; i < numSpots; i++) {
             if (scores[i] == 0)
                 break;
 
-            String tmpStr = names[i] + "   " + scores[i];
+            String tmpStr = names[i] + " " + scores[i];
             LBText[i].setText(tmpStr);
         }
 
@@ -241,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
             messWithColors();
     }
 
-    // handler to flash a new score added to the LB
+    // Handler to flash a new score added to the LB.
     // It changes the text color to the next text color in LBcolors, and then
     // sets up another execution of itself in 0.1 seconds.
     // stopRunnable is set to true to stop the recursion when the user clicks
@@ -265,7 +257,6 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(r, 300);
     }
 
-    //
     // Called when a question button is hit.
     // - dynamically finds the LinearLayout sibling, for this to work a question
     //         button can only have a single sibling of type LinearLayout
@@ -275,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
     //   - see if there is a layout for another question expanded
     //      - if so, collapse it
     //   - expand the layout for this question
-    //
+    @SuppressWarnings("unused")
     public void openQuestion(View view) {
         LinearLayout layout = (LinearLayout) view.getParent();
 
@@ -300,19 +291,19 @@ public class MainActivity extends AppCompatActivity {
         if (currentLayout == layout) {
             // this view is already expanded, collapse it
             answer.setLayoutParams(closedParams);
-            layout.setBackgroundColor(0xff076379);
+            layout.setBackgroundColor(blueGreen);
             currentLayout = null;
             currentAnswer = null;
         } else {
             if (currentLayout != null) {
                 // a different view is expanded, collapse it
                 currentAnswer.setLayoutParams(closedParams);
-                currentLayout.setBackgroundColor(0xff076379);
+                currentLayout.setBackgroundColor(blueGreen);
             }
 
             // expand the view for this question
             answer.setLayoutParams(openParams);
-            layout.setBackgroundColor(0xff7fc2e4);
+            layout.setBackgroundColor(lightBlue);
 
             // remember which layout and answer are expanded
             currentLayout = layout;
@@ -320,8 +311,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // pop-up a toast
+    void showToast(String msg) {
+        Toast toast = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT);
+        TextView toastMessage = toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.CYAN);
+        toast.show();
+    }
 
-    //
     // The remaining methods are called when specific question responses are chosen (radio buttons,
     // check boxes).  They :
     // - get the view tag
@@ -331,17 +328,12 @@ public class MainActivity extends AppCompatActivity {
     // - perform easter egg if appropriate, and fix tag value to that equal an incorrect answer
     // - record user's answer to this question and mark the question as answered
     // - darken this button so the user knows they have answered this question
-    //
 
     public void answer1(View view) {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You shall not pass!",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.not_pass));
             answer = 0;
         }
 
@@ -356,11 +348,7 @@ public class MainActivity extends AppCompatActivity {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Wax on, wax off",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.wax_on));
             answer = 0;
         }
 
@@ -397,11 +385,7 @@ public class MainActivity extends AppCompatActivity {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Not a pizza topping",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.not_topping));
             answer = 0;
         }
 
@@ -416,11 +400,7 @@ public class MainActivity extends AppCompatActivity {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Yeah, she wishes",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.she_wishes));
             answer = 0;
         }
 
@@ -435,11 +415,7 @@ public class MainActivity extends AppCompatActivity {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Yeah, but he still looks gooooood",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.looks_good));
             answer = 0;
         }
 
@@ -454,11 +430,7 @@ public class MainActivity extends AppCompatActivity {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Why so serious?",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.serious));
             answer = -1;
         }
 
@@ -488,11 +460,7 @@ public class MainActivity extends AppCompatActivity {
         int answer = Integer.parseInt(view.getTag().toString());
 
         if (answer == -2) {
-            Toast toast = Toast.makeText(getApplicationContext(), "ACK",
-                    Toast.LENGTH_SHORT);
-            TextView toastMessage = toast.getView().findViewById(android.R.id.message);
-            toastMessage.setTextColor(Color.CYAN);
-            toast.show();
+            showToast(getString(R.string.ack));
             answer = 0;
         }
 
