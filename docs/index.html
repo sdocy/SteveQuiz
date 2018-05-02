@@ -1,107 +1,84 @@
-<style>
-    .side-text {
-	    margin-left: 20px;
-	}
 	
-	.small-image {
-	    width: 200px;
-	}
-	
-	.center {
-	    text-align: center;
-	}
-</style>
-		
 <head>
 	<title>Steve Quiz</title>
+	<link rel="stylesheet" type="text/css" href="myStyles.css">
 </head>
 
 <html>	
 <body>
-
-<div style="display:inline-block;vertical-align:top;">
-    <video id="stevequiz" width="360" height="640" controls preload >
-        <source src="quiz.mp4">
-</video>
-</div>
-
-<div style="display:inline-block;vertical-align:top;">
-	<p class="side-text">Ok, I had way too much fun creating the quiz app.<br/><br/>
-
-	My girlfriend is always making me take those facebook quizzes so I decided</br>
-	to turn the tables on her and give her a quiz about something important.....me !<br/><br/>
-
-	I was planning on having the quiz show all the correct answers at the end, but<br/>
-	ended up giving it to my family to play with before I had implemented that part.<br/>
-	That was the best thing I could have done.  They spent over an hour playing with<br/>
-	the app, first trying to outdo each other's score, and then working together to<br/>
-	try to get a perfect score.  It was amazing watching them thoroughly enjoy<br/>
-	something that I had created.<br/><br/>
-
-	I think the ultimate goal of software should be to help people accomplish or<br/>
-	enjoy something without getting in the way and watching my family enjoying my<br/>
-	app, I have to say I was pretty successful.<br/><br/>
-
-	I spent a lot of time searching and reading how to do new things on Android.<br/>
-	Whenever I thought of something cool to add to it, I would start googling how to<br/>
-	do it.  I think once you have the basics down for a language/platform, this is a<br/>
-	great next step.<br/><br/><br/>
-	Oh, and the pic is a pic of me and my best bud, Darwin, up at Ski Bowl a few<br/>
-	years ago.<br/><br/>
-	</p>
-
-	<div class="center">
-		<img class="small-image" src="calvin.gif">
+<div>
+	<div class="text-left indentleft">
+		<video id="stevequiz" width="360" height="640" controls preload >
+			<source src="quiz.mp4">
+		</video>
+		
+		<div class="center">
+			<img class="small-image" src="quiz.gif">
+		</div>
 	</div>
+		
+	<div class="text-right">
+		<p class="side-text">Ok, I had way too much fun creating the quiz app.<br/><br/>
 
-</div>
+		My girlfriend is always making me take those facebook quizzes so I decided</br>
+		to turn the tables on her and give her a quiz about something important.....me !<br/><br/>
 
-<div style="display:inline-block;vertical-align:top;">
-	<p class="side-text"></br/>Some cool features I figured out:<br/></p>
-	<ul>
-		<li>Dynamically expand and collapse Views based on user actions.  This was my initial</br>
-		“wouldn't it be cool if” idea when I started thinking of the app and it really drove<br/>
-		the overall design.  Seemed like a great feature for making efficient use of limited<br/>
-		mobile screen real-estate.</li>
-		<li>Add music...I'm still looking for a better way to switch music tracks other than<br/>
-		destroying and recreating my media player.</li>
-		<li>Add funny question answers with funny little Easter eggs....toasts, images that<br/>
-		expand, music that starts playing</li>
-		<li>Shade buttons to let the player know which questions they have answered.</li>
-		<li>Switching the layout displayed on the screen</li>
-		<li>Check correct state before going to next layout...did user enter their name, did<br/>
-		they answer all questions?</li>
-		<li>A leader board that tracks the top 5 scores for this execution of the app – would</br>
-		be cool to learn file I/O and write the leader board to persistent store.</li>
-		<li>Text shadowing</li>
-		<li>use runnables and handlers to start a thread for animating flashing text</li>
-	</ul>
+		I was planning on having the quiz show all the correct answers at the end, but<br/>
+		ended up giving it to my family to play with before I had implemented that part.<br/>
+		That was the best thing I could have done.  They spent over an hour playing with<br/>
+		the app, first trying to outdo each other's score, and then working together to<br/>
+		try to get a perfect score.  It was amazing watching them thoroughly enjoy<br/>
+		something that I had created.<br/><br/>
+
+		I think the ultimate goal of software should be to help people accomplish or<br/>
+		enjoy something without getting in the way and watching my family enjoying my<br/>
+		app, I have to say I was pretty successful.<br/><br/>
+
+		I spent a lot of time searching and reading how to do new things on Android.<br/>
+		Whenever I thought of something cool to add to it, I would start googling how to<br/>
+		do it.  I think once you have the basics down for a language/platform, this is a<br/>
+		great next step.<br/><br/><br/>
+		Oh, and the pic is a pic of me and my best bud, Darwin, up at Ski Bowl a few<br/>
+		years ago.<br/><br/>
+		</p>
+
+		<div class="center">
+			<img class="small-image" src="calvin.gif">
+		</div>
+	</div>
 	
-	<div class="center">
-		<p><br/><br/><br/>Send me feedback, questions, or ideas</p>
-		<address>
-			<a href="mailto:sdocy@comcast.net">sdocy@comcast.net</a>
-		</address>
+	<div class="text-right">
+		<p class="side-text">Some cool features I figured out:<br/></p>
+		<ul>
+			<li>Dynamically expand and collapse Views based on user actions.  This was my initial</br>
+			“wouldn't it be cool if” idea when I started thinking of the app and it really drove<br/>
+			the overall design.  Seemed like a great feature for making efficient use of limited<br/>
+			mobile screen real-estate.</li>
+			<li>Add music...I'm still looking for a better way to switch music tracks other than<br/>
+			destroying and recreating my media player.</li>
+			<li>Add funny question answers with funny little Easter eggs....toasts, images that<br/>
+			expand, music that starts playing</li>
+			<li>Shade buttons to let the player know which questions they have answered.</li>
+			<li>Switching the layout displayed on the screen</li>
+			<li>Check correct state before going to next layout...did user enter their name, did<br/>
+			they answer all questions?</li>
+			<li>A leader board that tracks the top 5 scores for this execution of the app – would</br>
+			be cool to learn file I/O and write the leader board to persistent store.</li>
+			<li>Text shadowing</li>
+			<li>use runnables and handlers to start a thread for animating flashing text</li>
+		</ul>
+		
+		<div class="center">
+			<p><br/><br/><br/>Send me feedback, questions, or ideas</p>
+			<address>
+				<a href="mailto:sdocy@comcast.net">sdocy@comcast.net</a>
+			</address>
+		</div>
+		
+		
 	</div>
 </div>
 
-<div>
-	<p>Small update, cleaning some things up<br/></p>
-	<ul>
-		<li>Added more comments</li>
-		<li>only call messWithColors() if there is a new score on the LB</li>
-	</ul>
-</div>
-
-<div>
-	<p><br/>TODO:</p>
-	<ul>
-		<li>see about collapsing multiple answer() methods into a single method,<br/>
-		    will likely require adding new XML tags to identify which question is calling<br/>
-			the method</li>
-			<li>play with style and theme settings and lose hard-coded color settings</li>
-	</ul>
-</div>
 </body>
 </html>
 
